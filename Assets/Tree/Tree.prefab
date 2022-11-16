@@ -308,7 +308,7 @@ Material:
     m_Floats:
     - _Cutoff: 0.3
     - _ShadowOffsetScale: 1
-    - _ShadowStrength: 0.8
+    - _ShadowStrength: 0.072
     - _SquashAmount: 1
     - _TranslucencyViewDependency: 0.7
     m_Colors:
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 762
-  materialHash: d13f5be9819902c1dc56addd0155e827215482368
+  materialHash: 45351cc9f0d659e85d91372a325374e1215482368
   root:
     _uniqueID: 1
     seed: 2329966
@@ -1298,7 +1298,7 @@ MonoBehaviour:
     parentGroupID: 5
     childGroupIDs: 
     geometryMode: 0
-    materialLeaf: {fileID: 2100000, guid: ee082033edf559248a934158722320cc, type: 2}
+    materialLeaf: {fileID: 2100000, guid: 190699e3f84729c49844d2e9cabe6638, type: 2}
     instanceMesh: {fileID: 0}
     size: {x: 0.86620015, y: 1.0724857}
     perpendicularAlign: 0
