@@ -28,18 +28,19 @@ public class BasicMovement : MonoBehaviour
         float tSpeed = turnSpeed * Time.deltaTime;
         Vector3 angles = transform.rotation.eulerAngles;
 
-        // clamp up down look, so we cant do somersaults
+        // clamp up down look
         angles.x = ClampAngle(angles.x + GetAxis(KeyCode.UpArrow, KeyCode.DownArrow) * tSpeed, -89, 89);
         angles.y += GetAxis(KeyCode.RightArrow, KeyCode.LeftArrow) * tSpeed;
         angles.z = 0;
         transform.rotation = Quaternion.Euler(angles);
 
-        // handle movmeent
+        // handle movement
         Vector3 side = transform.right * GetAxis(KeyCode.D, KeyCode.A);
         Vector3 upDown = transform.up * GetAxis(KeyCode.E, KeyCode.Q);
         Vector3 fwd = transform.forward * GetAxis(KeyCode.W, KeyCode.S);
 
-        float mSpeed = (Input.GetKey(KeyCode.LeftShift) ? moveSpeedUp : moveSpeed) * Time.deltaTime;
+        float mSpeed = (Input.GetKey(KeyCode.LeftShift) ? moveSpeedUp : moveSpeed);
+        mSpeed *= Time.deltaTime;
         transform.position += (side + upDown + fwd) * mSpeed;
     }
 }
