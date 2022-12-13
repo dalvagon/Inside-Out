@@ -16349,7 +16349,7 @@ MonoBehaviour:
   - {fileID: 1096695424}
   - {fileID: 974501668}
   - {fileID: 597352657}
-  mainCamera: {fileID: 1816959795}
+  mainCamera: {fileID: 1493331410}
 --- !u!850595691 &1406040168
 LightingSettings:
   m_ObjectHideFlags: 0
