@@ -1391,7 +1391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_Name
-      value: lever (1)
+      value: lever3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_TagString
@@ -16271,7 +16271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_Name
-      value: lever
+      value: lever2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_TagString
@@ -16289,6 +16289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1361655718}
   - component: {fileID: 1361655717}
+  - component: {fileID: 1361655719}
   m_Layer: 0
   m_Name: TerrainGroup_0
   m_TagString: Untagged
@@ -16331,6 +16332,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1361655719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361655716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec780a7248c9b0419a039e6ea754d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levers:
+  - {fileID: 554700833}
+  - {fileID: 1096695424}
+  - {fileID: 974501668}
+  - {fileID: 597352657}
+  mainCamera: {fileID: 1816959795}
 --- !u!850595691 &1406040168
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -22152,7 +22171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_Name
-      value: lever
+      value: lever1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_TagString
@@ -22523,7 +22542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_Name
-      value: lever (2)
+      value: lever4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 807b34cdd8fb19740a1cad6bd32070a1, type: 3}
       propertyPath: m_TagString
