@@ -10,6 +10,7 @@ public class LeverPuzzle : MonoBehaviour
     public GameObject mainCamera;
     private Graph graph;
     private Dictionary<GameObject, Node> leverToNode;
+    private bool win = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,7 @@ public class LeverPuzzle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && !win)
         {
             foreach (var lever in levers)
             {
@@ -57,8 +58,9 @@ public class LeverPuzzle : MonoBehaviour
             }
         }
         
-        if (graph.IsSolved())
+        if (graph.IsSolved() && !win)
         {
+            win = true;
             print("You win!");
             graph.ResetFlags();
         }

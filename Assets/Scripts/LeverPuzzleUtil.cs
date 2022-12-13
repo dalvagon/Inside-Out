@@ -125,7 +125,6 @@ namespace LeverPuzzleUtil
             {
                 if (edge.From.Value == node.Value)
                 {
-                    Debug.Log("hereeeeee " + edge);
                     edge.To.Flag = !edge.To.Flag ? true : false;
                 }
             }
