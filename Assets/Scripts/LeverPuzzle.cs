@@ -33,27 +33,36 @@ public class LeverPuzzle : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && !win)
         {
+            GameObject minLever = null;
+            float minDistance = float.MaxValue;
+
             foreach (var lever in levers)
             {
                 if (lever.GetComponent<MoveLever>().IsLeverInFront(mainCamera.transform.position, mainCamera.transform.forward, levers.IndexOf(lever)))
                 {
-                    bool[] prev_flags = new bool[graph.Nodes.Count];
-                    for (int i = 0; i < graph.Nodes.Count; i++)
+                    float distance = Vector3.Distance(mainCamera.transform.position, lever.transform.position);
+                    if (distance < minDistance)
                     {
-                        prev_flags[i] = graph.Nodes[i].Flag;
+                        minDistance = distance;
+                        minLever = lever;
                     }
-                    
-                    graph.SetFlagsForInput(leverToNode[lever]);
+                }
+            }
 
-                    for (int i = 0; i < graph.Nodes.Count; i++)
-                    {
-                        if (prev_flags[i] != graph.Nodes[i].Flag)
-                        {
-                            print("Lever " + (i + 1) + " is " + (graph.Nodes[i].Flag ? "on" : "off"));
-                            levers[i].GetComponent<Animator>().SetTrigger("Move");
-                        }
-                    }
-                    break;
+            bool[] prev_flags = new bool[graph.Nodes.Count];
+            for (int i = 0; i < graph.Nodes.Count; i++)
+            {
+                prev_flags[i] = graph.Nodes[i].Flag;
+            }
+            
+            graph.SetFlagsForInput(leverToNode[minLever]);
+
+            for (int i = 0; i < graph.Nodes.Count; i++)
+            {
+                if (prev_flags[i] != graph.Nodes[i].Flag)
+                {
+                    print("Lever " + (i + 1) + " is " + (graph.Nodes[i].Flag ? "on" : "off"));
+                    levers[i].GetComponent<Animator>().SetTrigger("Move");
                 }
             }
         }

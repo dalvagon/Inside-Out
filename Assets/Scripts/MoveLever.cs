@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveLever : MonoBehaviour
 {
     Animator animator;
-    const float TARGET_DISTANCE = 2.0f;
+    const float TARGET_DISTANCE = 10.0f;
     const float TARGET_ANGLE = 30.0f;
 
     void Start()
