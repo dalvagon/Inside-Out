@@ -22,10 +22,14 @@ public class LeverPuzzle : MonoBehaviour
             graph.AddNode(new Node { Value = i, Flag = false });
             leverToNode.Add(levers[i], graph.Nodes[i]);
         }
-        graph.AddEdge(graph.Nodes[2], graph.Nodes[1]);
-        graph.AddEdge(graph.Nodes[2], graph.Nodes[3]);
+        graph.AddEdge(graph.Nodes[0], graph.Nodes[1]);
+        graph.AddEdge(graph.Nodes[0], graph.Nodes[2]);
+        graph.AddEdge(graph.Nodes[3], graph.Nodes[0]);
+        graph.AddEdge(graph.Nodes[3], graph.Nodes[2]);
         graph.AddEdge(graph.Nodes[2], graph.Nodes[0]);
-        graph.AddEdge(graph.Nodes[1], graph.Nodes[3]);
+        graph.AddEdge(graph.Nodes[4], graph.Nodes[5]);
+
+        // 0 (top-left), 3 (top-right), 2 (bottom-left), 4 (bottom-right)
     }
 
     // Update is called once per frame
