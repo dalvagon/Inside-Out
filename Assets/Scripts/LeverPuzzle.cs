@@ -8,6 +8,7 @@ public class LeverPuzzle : MonoBehaviour
 {
     public List<GameObject> levers = new List<GameObject>();
     public GameObject mainCamera;
+    public GameObject gate;
     private Graph graph;
     private Dictionary<GameObject, Node> leverToNode;
     private bool win = false;
@@ -30,6 +31,25 @@ public class LeverPuzzle : MonoBehaviour
         graph.AddEdge(graph.Nodes[4], graph.Nodes[5]);
 
         // 0 (top-left), 3 (top-right), 2 (bottom-left), 4 (bottom-right)
+    }
+
+    void FadeOutDoor()
+    {
+        Color color1 = Color.white;
+        Color color2 = new Color(1f, 1f, 1f, 0f);
+        float duration = 2f;
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            gate.GetComponent<Renderer>().material.color = Color.Lerp(color1, color2, t / duration);
+        }
+
+        gate.GetComponent<Renderer>().material.color = color2;
+        
+        // destroy gate object
+        Destroy(gate);
+
     }
 
     // Update is called once per frame
@@ -75,6 +95,7 @@ public class LeverPuzzle : MonoBehaviour
         {
             win = true;
             print("You win!");
+            FadeOutDoor();
             graph.ResetFlags();
         }
     }
