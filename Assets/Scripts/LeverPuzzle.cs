@@ -37,16 +37,17 @@ public class LeverPuzzle : MonoBehaviour
     {
         Color color1 = Color.white;
         Color color2 = new Color(1f, 1f, 1f, 0f);
-        float duration = 2f;
+        float duration = 1f;
         float t = 0f;
+        float fadeSpeed = 0.5f;
         while (t < duration)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime * fadeSpeed;
             gate.GetComponent<Renderer>().material.color = Color.Lerp(color1, color2, t / duration);
         }
 
         gate.GetComponent<Renderer>().material.color = color2;
-        
+
         // destroy gate object
         Destroy(gate);
 
