@@ -30,7 +30,6 @@ public class TigerController : MonoBehaviour
             agent.isStopped = true;
             hasMoved = false;
             Destroy(door);
-            door.GetComponent<Renderer>().enabled = false;
         }
 
         if (leverPuzzle.IsWin() && distance < 50.0f)
