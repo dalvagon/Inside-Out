@@ -50,7 +50,6 @@ public class LeverPuzzle : MonoBehaviour
 
         // destroy gate object
         Destroy(gate);
-
     }
 
     // Update is called once per frame
@@ -63,9 +62,20 @@ public class LeverPuzzle : MonoBehaviour
 
             foreach (var lever in levers)
             {
-                if (lever.GetComponent<MoveLever>().IsLeverInFront(mainCamera.transform.position, mainCamera.transform.forward, levers.IndexOf(lever)))
+                if (
+                    lever
+                        .GetComponent<MoveLever>()
+                        .IsLeverInFront(
+                            mainCamera.transform.position,
+                            mainCamera.transform.forward,
+                            levers.IndexOf(lever)
+                        )
+                )
                 {
-                    float distance = Vector3.Distance(mainCamera.transform.position, lever.transform.position);
+                    float distance = Vector3.Distance(
+                        mainCamera.transform.position,
+                        lever.transform.position
+                    );
                     if (distance < minDistance)
                     {
                         minDistance = distance;
@@ -79,7 +89,7 @@ public class LeverPuzzle : MonoBehaviour
             {
                 prev_flags[i] = graph.Nodes[i].Flag;
             }
-            
+
             graph.SetFlagsForInput(leverToNode[minLever]);
 
             for (int i = 0; i < graph.Nodes.Count; i++)
@@ -91,7 +101,7 @@ public class LeverPuzzle : MonoBehaviour
                 }
             }
         }
-        
+
         if (graph.IsSolved() && !win)
         {
             win = true;
@@ -99,5 +109,10 @@ public class LeverPuzzle : MonoBehaviour
             FadeOutDoor();
             graph.ResetFlags();
         }
+    }
+
+    public bool IsWin()
+    {
+        return win;
     }
 }

@@ -254,5 +254,5 @@ namespace LeverPuzzleUtil
             }
             return result;
         }
-    }   
+    }
 }

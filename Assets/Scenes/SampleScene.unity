@@ -509,6 +509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 363836137}
+  terrain: {fileID: 1361655716}
 --- !u!195 &363836137
 NavMeshAgent:
   m_ObjectHideFlags: 0

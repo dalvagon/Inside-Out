@@ -11,8 +11,10 @@ public class BasicMovement : MonoBehaviour
     float GetAxis(KeyCode pos, KeyCode neg)
     {
         float r = 0;
-        if (Input.GetKey(pos)) r += 1;
-        if (Input.GetKey(neg)) r -= 1;
+        if (Input.GetKey(pos))
+            r += 1;
+        if (Input.GetKey(neg))
+            r -= 1;
         return r;
     }
 
@@ -29,7 +31,11 @@ public class BasicMovement : MonoBehaviour
         Vector3 angles = transform.rotation.eulerAngles;
 
         // clamp up down look
-        angles.x = ClampAngle(angles.x + GetAxis(KeyCode.UpArrow, KeyCode.DownArrow) * tSpeed, -89, 89);
+        angles.x = ClampAngle(
+            angles.x + GetAxis(KeyCode.UpArrow, KeyCode.DownArrow) * tSpeed,
+            -89,
+            89
+        );
         angles.y += GetAxis(KeyCode.RightArrow, KeyCode.LeftArrow) * tSpeed;
         angles.z = 0;
         transform.rotation = Quaternion.Euler(angles);

@@ -20,8 +20,4 @@ public class MoveLever : MonoBehaviour
         return distance < TARGET_DISTANCE;
         // return distance < TARGET_DISTANCE && Vector3.Angle(cameraForward, leverPosition - cameraPosition) < TARGET_ANGLE;
     }
-
-    void Update()
-    {
-    }
 }
