@@ -6,10 +6,12 @@ public class TigerController : MonoBehaviour
 {
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject terrain;
+    public GameObject tiger;
+    public GameObject door;
     private LeverPuzzle leverPuzzle;
     private Vector3 agentInitialPosition;
     private Vector3 playerInitialPosition;
-    public GameObject tiger;
+    private bool hasMoved = false;
 
     void Start()
     {
@@ -22,18 +24,29 @@ public class TigerController : MonoBehaviour
     {
         var distance = Vector3.Distance(agent.transform.position, Camera.main.transform.position);
 
-        if (leverPuzzle.IsWin() && distance <= 100.0f)
+        if (distance >= 50.0f && hasMoved)
         {
+            Debug.Log("Tiger stopped following you");
+            agent.isStopped = true;
+            hasMoved = false;
+            Destroy(door);
+            door.GetComponent<Renderer>().enabled = false;
+        }
+
+        if (leverPuzzle.IsWin() && distance < 50.0f)
+        {
+            hasMoved = true;
+            agent.isStopped = false;
             agent.SetDestination(GetDestination());
             tiger.GetComponent<Animator>().SetTrigger("WalkTrigger");
         }
 
-        if (distance <= 5.0f)
+        if (distance <= 2.0f)
         {
             Debug.Log("You died");
             agent.transform.position = agentInitialPosition;
-            agent.ResetPath();
-            tiger.GetComponent<Animator>().SetTrigger("WalkTrigger");
+            agent.isStopped = true;
+            tiger.GetComponent<Animator>().SetTrigger("StopTrigger");
             Camera.main.transform.position = playerInitialPosition;
         }
     }
@@ -47,7 +60,7 @@ public class TigerController : MonoBehaviour
                 Camera.main.transform.position,
                 Camera.main.transform.forward,
                 out hit,
-                100.0f
+                300.0f
             )
         )
         {
