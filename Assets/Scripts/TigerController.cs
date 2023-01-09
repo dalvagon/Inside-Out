@@ -7,10 +7,15 @@ public class TigerController : MonoBehaviour
     public UnityEngine.AI.NavMeshAgent agent;
     public GameObject terrain;
     private LeverPuzzle leverPuzzle;
+    private Vector3 agentInitialPosition;
+    private Vector3 playerInitialPosition;
+    public GameObject tiger;
 
     void Start()
     {
         leverPuzzle = terrain.GetComponent<LeverPuzzle>();
+        agentInitialPosition = agent.transform.position;
+        playerInitialPosition = Camera.main.transform.position;
     }
 
     void Update()
@@ -20,6 +25,16 @@ public class TigerController : MonoBehaviour
         if (leverPuzzle.IsWin() && distance <= 100.0f)
         {
             agent.SetDestination(GetDestination());
+            tiger.GetComponent<Animator>().SetTrigger("WalkTrigger");
+        }
+
+        if (distance <= 5.0f)
+        {
+            Debug.Log("You died");
+            agent.transform.position = agentInitialPosition;
+            agent.ResetPath();
+            tiger.GetComponent<Animator>().SetTrigger("WalkTrigger");
+            Camera.main.transform.position = playerInitialPosition;
         }
     }
 
