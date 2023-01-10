@@ -9,6 +9,7 @@ public class TigerController : MonoBehaviour
     public GameObject tiger;
     public GameObject door;
     private LeverPuzzle leverPuzzle;
+    private TigerPuzzle tigerPuzzle;
     private Vector3 agentInitialPosition;
     private Vector3 playerInitialPosition;
     private bool hasMoved = false;

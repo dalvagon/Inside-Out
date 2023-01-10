@@ -4,39 +4,32 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    public GameObject terrain;
+    private MoldPuzzle moldPuzzle;
     public GameObject star;
-    private MoldSignal starScript;
     public GameObject galaxy;
     public GameObject cube;
+    public GameObject door;
     private bool disappeared = false;
+    private MoldSignal starScript;
 
     void Start()
     {
         starScript = star.GetComponent<MoldSignal>();
+        moldPuzzle = terrain.GetComponent<MoldPuzzle>();
     }
 
-    /*
-   IEnumerator DoCheck()
-    {
-    for(;;)
-    {
-        if (starHolder.GetComponent<MoldSignal>().done==true)
-        {
-            
-            // Perform some action here
-        }
-        yield return new WaitForSeconds(.1f);
-    }
-    }*/
-    // Update is called once per frame
     void Update()
     {
         if (!disappeared)
-            if (starScript.done && cube.GetComponent<MoldSignal>().done && galaxy.GetComponent<MoldSignal>().done)
+            if (
+                starScript.done
+                && cube.GetComponent<MoldSignal>().done
+                && galaxy.GetComponent<MoldSignal>().done
+            )
             {
-                Debug.Log("HELLO");
-                this.GetComponent<Renderer>().enabled = false;
-                // Perform some action here
+                moldPuzzle.Win();
+                Destroy(door);
                 disappeared = true;
             }
     }
