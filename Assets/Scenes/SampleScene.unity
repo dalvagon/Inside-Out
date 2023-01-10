@@ -21087,7 +21087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackOutSquare: {fileID: 857686568}
   cabin: {fileID: 262406925}
-  textObj: {fileID: 0}
+  textObj: {fileID: 2057693999}
   mainCamera: {fileID: 1493331410}
 --- !u!1 &1501490676
 GameObject:
