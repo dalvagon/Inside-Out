@@ -25,10 +25,6 @@ public class FadeToBlack : MonoBehaviour
             textObj.SetActive(true);
             StartCoroutine(FadeToBlackSquare(true));
         }
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            StartCoroutine(FadeToBlackSquare(false));
-        }
     }
 
     public bool CheckIfCabinWasTouched()
