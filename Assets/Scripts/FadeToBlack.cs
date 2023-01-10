@@ -7,8 +7,6 @@ public class FadeToBlack : MonoBehaviour
 {
     public GameObject blackOutSquare;
     public GameObject cabin;
-    public GameObject mainCamera;
-
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +30,7 @@ public class FadeToBlack : MonoBehaviour
 
     public bool CheckIfCabinWasTouched()
     {
-        return cabin.GetComponent<Collider>().bounds.Contains(mainCamera.transform.position);
+        return cabin.GetComponent<Collider>().bounds.Contains(Camera.main.transform.position);
     }
 
     public IEnumerator FadeToBlackSquare(bool fadeToBlack = true, int fadeSpeed = 1)
@@ -42,7 +40,7 @@ public class FadeToBlack : MonoBehaviour
 
         if (fadeToBlack)
         {
-            while(blackOutSquare.GetComponent<Image>().color.a < 1)
+            while (blackOutSquare.GetComponent<Image>().color.a < 1)
             {
                 fadeAmount = objectColor.a + (fadeSpeed * Time.deltaTime);
 
