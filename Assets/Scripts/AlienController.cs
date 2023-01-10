@@ -39,13 +39,13 @@ public class AlienController : MonoBehaviour
             }
         }
 
-        if (distance > 0.0f && distance < 50.0f && moldPuzzle.IsWin())
+        if (distance > 2.0f && distance < 50.0f && moldPuzzle.IsWin())
         {
             Debug.Log("The alien is after you");
             agent.SetDestination(Camera.main.transform.position);
         }
 
-        if (distance <= 0.0f)
+        if (distance <= 2.0f)
         {
             Debug.Log("You died");
             GetComponent<Animator>().SetTrigger("StopTrigger");
