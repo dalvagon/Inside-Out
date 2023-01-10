@@ -29,7 +29,7 @@ public class AlienController : MonoBehaviour
 
         if (distance >= 50.0f)
         {
-            Debug.Log("The alien is wandering");
+            // Debug.Log("The alien is wandering");
             timer += Time.deltaTime;
             if (timer >= WANDER_TIMER)
             {
