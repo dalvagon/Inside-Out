@@ -8,6 +8,7 @@ TagManager:
   - Entity
   - Star
   - Square
+  - Galaxy
   layers:
   - Default
   - TransparentFX

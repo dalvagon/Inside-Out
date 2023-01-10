@@ -6,6 +6,7 @@ public class DoorScript : MonoBehaviour
 {
     public GameObject star;
     private MoldSignal starScript;
+    public GameObject galaxy;
     public GameObject cube;
     private bool disappeared = false;
 
@@ -31,7 +32,7 @@ public class DoorScript : MonoBehaviour
     void Update()
     {
         if (!disappeared)
-            if (starScript.done && cube.GetComponent<MoldSignal>().done)
+            if (starScript.done && cube.GetComponent<MoldSignal>().done && galaxy.GetComponent<MoldSignal>().done)
             {
                 Debug.Log("HELLO");
                 this.GetComponent<Renderer>().enabled = false;
